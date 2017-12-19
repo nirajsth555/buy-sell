@@ -114,18 +114,14 @@ class registercontroller extends Controller
 
    public function getCheckname(Request $request){
       $name = $request->get('fullname');  
-      
-      
-
-        $query = DB::table('users')->where('name','=','$name')->get();
-              dd($query);
-            if(count($query)>0)
-            {
-                return "Username not available!";
-            }
-            else{
-            return "Username available!";
-          }
+      $query = DB::table('users')->where('name','=',$name)->get();
+      if(count($query)>0)
+      {
+        return "Username not available!";
+      }
+      else{
+        return "Username available!";
+      }
 }
 
 

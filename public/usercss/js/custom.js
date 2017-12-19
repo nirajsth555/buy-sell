@@ -126,42 +126,23 @@ var usrN = $("#name").val();
 
 if(usrN.length >= 4)
 {
-$("#statuspass").html(' Checking ...');
+    $("#statuspass").html(' Checking ...');
 
     $.ajax({  
-    type: "get",  
-     url : "/checkname", 
-     
-    success: function(msg){  
-        debugger;
-   
-   $("#statuspass").ajaxComplete(function(event, request, settings){ 
-
-    if(msg == 'OK')
-    { 
-        $("#name").removeClass('object_error'); 
-        $("#name").addClass("object_ok");
-        $(this).html('email can be used');
-    }  
-    else  
-    {  
+        type: "get",  
+        url : "checkname", 
+        data:{
+            fullname:usrN,
+        },
+        success: function(msg){  
+            $("#statuspass").html(msg);
+        }
+    });
+} else
+    {
+        $("#statuspass").html('<font color="red" style="margin-left:125px;">Username should be at least 4 letters <strong></strong> .</font>');
         $("#name").removeClass('object_ok'); 
         $("#name").addClass("object_error");
-        $(this).html(msg);
-    }  
-   
-   });
-
- } 
-   
-  }); 
-
-}
-else
-    {
-    $("#statuspass").html('<font color="red" style="margin-left:125px;">PLEASE ENTER <strong></strong> .</font>');
-    $("#name").removeClass('object_ok'); 
-    $("#name").addClass("object_error");
     }
 
 });
