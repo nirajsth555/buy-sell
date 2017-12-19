@@ -13,14 +13,15 @@
 						<h2>Personal Information</h2>
 						<form   action="{{url('r')}}" method="post">
 						<input type="hidden" name="_token" value="{{csrf_token()}}">
+						<input type="hidden" name="user_type" value="1">
 						<div class="sign-u">
 							<div class="sign-up1">
 								<h4>Full Name* :</h4>
 							</div>
 							<div class="sign-up2">
 								
-									<input type="text" name="name" placeholder="Please enter your full name " value="{{Request::old('name')}}" />
-									{{$errors->first('name')}}<br>
+									<input type="text" name="fullname" placeholder="Please enter your full name " id="name"  value="{{Request::old('name')}}" />
+									{{$errors->first('name')}}<p id="statuspass"></p> <br>
 								
 							</div>
 							<div class="clearfix"> </div>
@@ -42,7 +43,7 @@
 							</div>
 							<div class="sign-up2">
 								
-									<input type="text" name="phone" placeholder="Please enter your phone number " value="{{Request::old('phone')}}" />{{$errors->first('phone')}}
+									<input type="text" name="phone" placeholder="Please enter your phone number "  value="{{Request::old('phone')}}" />{{$errors->first('phone')}}
 								
 							</div>
 							<div class="clearfix"> </div>
@@ -53,8 +54,9 @@
 							</div>
 							<div class="sign-up2">
 								
-									<input type="password" name="password" placeholder=" Please enter your password" />
+									<input type="password" name="password" id="password" placeholder=" Please enter your password" />
 								
+						<p id="message_strength"></p>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
@@ -64,8 +66,9 @@
 							</div>
 							<div class="sign-up2">
 								
-									<input type="password" name="confirmpassword" placeholder="Please re-enter your password " />
+									<input type="password" name="confirmpassword" id="confirm_password" placeholder="Please re-enter your password " />
 								
+							<p id="message"></p> 
 							</div>
 							<div class="clearfix"> </div>
 						</div>

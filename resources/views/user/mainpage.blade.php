@@ -140,8 +140,8 @@
 								<li>
 									<div class="col-md-3 biseller-column">
 										<a href="single.html">
-											<img src="{{url('public/user/images/p1.jpg')}}"/>
-											<span class="price">&#36; 450</span>
+											<img src="{{url('public/usercss/images/p1.jpg')}}"/>
+											<span class="price">Rs. 450</span>
 										</a> 
 										<div class="ad-info">
 											<h5>There are many variations of passages</h5>
@@ -150,8 +150,8 @@
 									</div>
 									<div class="col-md-3 biseller-column">
 										<a href="single.html">
-											<img src="{{url('public/user/images/p2.jpg')}}"/>
-											<span class="price">&#36; 399</span>
+											<img src="{{url('public/usercss/images/p2.jpg')}}"/>
+											<span class="price">Rs. 399</span>
 										</a> 
 										<div class="ad-info">
 											<h5>Lorem Ipsum is simply dummy</h5>
@@ -160,7 +160,7 @@
 									</div>
 									<div class="col-md-3 biseller-column">
 										<a href="single.html">
-											<img src="{{url('public/user/images/p3.jpg')}}"/>
+											<img src="{{url('public/usercss/images/p3.jpg')}}"/>
 											<span class="price">&#36; 199</span>
 										</a> 
 										<div class="ad-info">
@@ -170,7 +170,7 @@
 									</div>
 									<div class="col-md-3 biseller-column">
 										<a href="single.html">
-											<img src="{{url('public/user/images/p4.jpg')}}"/>
+											<img src="{{url('public/usercss/images/p4.jpg')}}"/>
 											<span class="price">&#36; 159</span>
 										</a> 
 										<div class="ad-info">
@@ -182,7 +182,7 @@
 								<li>
 									<div class="col-md-3 biseller-column">
 										<a href="single.html">
-											<img src="{{url('public/user/images/p5.jpg')}}"/>
+											<img src="{{url('public/usercss/images/p5.jpg')}}"/>
 											<span class="price">&#36; 1599</span>
 										</a> 
 										<div class="ad-info">
@@ -192,7 +192,7 @@
 									</div>
 									<div class="col-md-3 biseller-column">
 										<a href="single.html">
-											<img src="{{url('public/user/images/p6.jpg')}}"/>
+											<img src="{{url('public/usercss/images/p6.jpg')}}"/>
 											<span class="price">&#36; 1099</span>
 										</a> 
 										<div class="ad-info">
@@ -202,7 +202,7 @@
 									</div>
 									<div class="col-md-3 biseller-column">
 										<a href="single.html">
-											<img src="{{url('public/user/images/p7.jpg')}}"/>
+											<img src="{{url('public/usercss/images/p7.jpg')}}"/>
 											<span class="price">&#36; 109</span>
 										</a> 
 										<div class="ad-info">
@@ -212,7 +212,7 @@
 									</div>
 									<div class="col-md-3 biseller-column">
 										<a href="single.html">
-											<img src="{{url('public/user/images/p8.jpg')}}"/>
+											<img src="{{url('public/usercss/images/p8.jpg')}}"/>
 											<span class="price">&#36; 189</span>
 										</a> 
 										<div class="ad-info">
@@ -224,7 +224,7 @@
 								<li>
 									<div class="col-md-3 biseller-column">
 										<a href="single.html">
-											<img src="{{url('public/user/images/p9.jpg')}}"/>
+											<img src="{{url('public/usercss/images/p9.jpg')}}"/>
 											<span class="price">&#36; 2599</span>
 										</a> 
 										<div class="ad-info">
@@ -234,7 +234,7 @@
 									</div>
 									<div class="col-md-3 biseller-column">
 										<a href="single.html">
-											<img src="{{url('public/user/images/p10.jpg')}}"/>
+											<img src="{{url('public/usercss/images/p10.jpg')}}"/>
 											<span class="price">&#36; 3999</span>
 										</a> 
 										<div class="ad-info">
@@ -244,7 +244,7 @@
 									</div>
 									<div class="col-md-3 biseller-column">
 										<a href="single.html">
-											<img src="{{url('public/user/images/p11.jpg')}}"/>
+											<img src="{{url('public/usercss/images/p11.jpg')}}"/>
 											<span class="price">&#36; 2699</span>
 										</a> 
 										<div class="ad-info">
@@ -254,7 +254,7 @@
 									</div>
 									<div class="col-md-3 biseller-column">
 										<a href="single.html">
-											<img src="{{url('public/user/images/p12.jpg')}}"/>
+											<img src="{{url('public/usercss/images/p12.jpg')}}"/>
 											<span class="price">&#36; 899</span>
 										</a> 
 										<div class="ad-info">
@@ -268,7 +268,7 @@
 						 $(window).load(function() {
 							$("#flexiselDemo3").flexisel({
 								visibleItems:1,
-								animationSpeed: 1000,
+								animationSpeed: 2000,
 								autoPlay: true,
 								autoPlaySpeed: 5000,    		
 								pauseOnHover: true,
@@ -291,7 +291,7 @@
 							
 						});
 					   </script>
-					   <script type="text/javascript" src="{{url('public/user/js/jquery.flexisel.js')}}"></script>
+					   <script type="text/javascript" src="{{url('public/usercss/js/jquery.flexisel.js')}}"></script>
 					</div>   
 			</div>
 			<!-- //slider -->				

@@ -58,7 +58,7 @@ class registercontroller extends Controller
             ->withInput();
         }
          $confirmation_code = mt_rand(1000,9999);
-          
+         $obj->user_type=$request->get('user_type'); 
     	 $obj->name=$request->get('name');  //yeta paxadi ko varibale uta form ko name =lekheko thau ko ho
         $obj->email=$request->get('email');
         $obj->phone=$request->get('phone');
@@ -111,5 +111,23 @@ class registercontroller extends Controller
       }
 
    }
+
+   public function getCheckname(Request $request){
+      $name = $request->get('fullname');  
+      
+      
+
+        $query = DB::table('users')->where('name','=','$name')->get();
+              dd($query);
+            if(count($query)>0)
+            {
+                return "Username not available!";
+            }
+            else{
+            return "Username available!";
+          }
+}
+
+
 
 }

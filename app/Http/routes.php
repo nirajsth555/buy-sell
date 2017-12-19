@@ -12,6 +12,13 @@
 */
 
 //
+Route::get('admin','admin@getIndex');
+Route::get('rootcategory','admin@getRootcategory');
+Route::post('postroot','admin@postRootcategory');
+Route::get('subcategory','admin@getSubcategory');
+Route::post('postsubcategpry','admin@postSubcategory');
+
+
 Route::get('/','usercontroller@getIndex');
 Route::get('register','registercontroller@getRegister');
 Route::post('r','registercontroller@postRegister');
@@ -21,3 +28,8 @@ Route::get('logout','logincontroller@getLogout');
 
 Route::get('verifycode','registercontroller@getVerify');
 Route::post('verification','registercontroller@postVerify');
+Route::get('post-ad','usercontroller@getPostad');
+Route::post('ad','usercontroller@postPostad');
+Route::get('getSubcategory/{id}','usercontroller@getSubcategories');
+
+Route::get('checkname','registercontroller@getCheckname');

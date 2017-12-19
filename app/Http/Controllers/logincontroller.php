@@ -10,6 +10,7 @@ use Hash;
 use DB;
 use Auth;
 use Session;
+use URL;
 
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests;
@@ -17,12 +18,12 @@ use App\Http\Requests;
 class logincontroller extends Controller
 {
     //
-     public function getLogin(){
-      Session::put('url.intended',URL::previous());
+     public function getLogin(Request $request){
+      $request->Session()->put('url.intended',url()->previous());
     	return view('user.login');
     }
 
-   public function postLogin(Request $request){
+   public function postLogin(Request $request){    //userlogin function
 
      $validation= Validator::make($request->all(),[
           
@@ -43,7 +44,12 @@ class logincontroller extends Controller
         }
     $email= $request->get('email');
     $password=$request->get('password');
-      if(Auth::attempt(['email'=>$email,'password'=>$password])){
+    if ($request->get('remember_me') == 'on'){
+      $remember = 1;
+    }else{
+      $remember = 0;
+    }
+      if(Auth::attempt(['email'=>$email,'password'=>$password,'user_type'=>1],$remember)){
 
         if(Auth::user()->flag !=1){
           $errors= "you have not confirmed your email yet";
@@ -51,8 +57,9 @@ class logincontroller extends Controller
           
           ->withErrors($errors);
         }
-        
-       return Redirect::to(Session::get('url.intended'));
+        return Redirect($request->session()->get('url.intended'));
+        //return Redirect::back();
+       //return Redirect::to(Session::get('url.intended'));
 
       }
       else{
@@ -67,7 +74,45 @@ class logincontroller extends Controller
       public function getLogout(){
 
         Auth::logout();
-        return view('admin.mainpage');
+        return view('user.mainpage');
 
       }
+
+
+     // public function getForgetpassword(){
+        //return view('admin.forgotpassword')
+      //}
+
+      //public function postForgetpassword(Request $request){
+        //$email = $request->get('email');
+        //$token=mt_rand(1000,9999);
+        //$data= DB::table('users')
+                  //->where('email','=',$email)
+                  ///->first();
+        //$flag= DB::table('users')
+                   //->where('flag','=',$email) 
+                   //->first();  
+        //if(count($data)>0 && $flag==1){
+          //DB::select("UPDATE users SET reset_code='$token' WHERE email='$email'");
+            //$msg="Reset code has been sent to your e-mail address. Please enter the Provided reset code to reset your password ";
+            //echo $msg; 
+        
+        //if(mail($email,"Password Reset","Please enter given code to reset your password",$msg))
+            //return view('admin.password_reset');  
+            //else{
+              //echo "failed msg";
+            //}
+
+
+           //}   
+
+
+        //else{
+            //$msg="Reset code has been sent to you e-mail address";
+            //echo $msg;
+              //return view('admin.password_reset');  
+           //} 
+
+
+    
 }

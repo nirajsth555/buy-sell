@@ -12,9 +12,9 @@
 						<div class="signin">
 							<div class="signin-rit">
 								<span class="checkbox1">
-									 <label class="checkbox"><input type="checkbox" name="checkbox" checked="">Forgot Password ?</label>
+									 <label class="checkbox"><input type="checkbox" name="checkbox" value="remember_me" checked="">Remember Me</label>
 								</span>
-								<p><a href="#">Click Here</a> </p>
+								<p><a href="#">Forgot Password</a> </p>
 								<div class="clearfix"> </div>
 							</div>
 							<input type="hidden" name="_token" value="{{csrf_token()}}">

@@ -4,40 +4,44 @@
 		<div class="container">
 			<h2 class="head">Post an Ad</h2>
 			<div class="post-ad-form">
-				<form action="" method="POST" enctype="multipart/form-data">
+				<form action="{{url('ad')}}" method="POST" enctype="multipart/form-data">
 				<input type="hidden" name="_token" value="{{csrf_token()}}" >
-				<div class="personal-details">
+				<div class="personal-details" >
 						<label>Your Name <span>*</span></label>
-						<input type="text" class="name" name="fullname" placeholder="" required="Name must be filled out">
+						<input type="text" class="name" name="fullname" placeholder="" required="Name must be filled out" value="{{Auth::user()->name}}">
 
 						<div class="clearfix"></div>
-
+                        <div class="input_fields_wrap">
 						<label>Your Mobile No <span>*</span></label>
-						<input type="text" class="phone" name="phone" placeholder="">
+						<input type="text" class="phone" name="phone[]" placeholder="" value="{{Auth::user()->phone}}" >
+						<button class="add_field_button"><i class="fa fa-plus-square" aria-hidden="true"></i>Add Another Number</button>
+						</div>
 
 						<div class="clearfix"></div>
 
 						<label>Your Email Address<span>*</span></label>
-						<input type="text" class="email" name="email" placeholder="">
+						<input type="text" class="email" name="email" placeholder="" value="{{Auth::user()->email}}">
 
 						<div class="clearfix"></div>
 						
 					</div>
 
 					<label>Select Category <span>*</span></label>
-					<select name="category" class="option">
-					  <option>Select Category</option>
-					  <option value="mobile">Mobiles</option>
-					  <option value="electronics">Electronics and Appliances</option>
-					  <option value="cars">Cars</option>
-					  <option value="bikes">Bikes</option>
-					  <option value="furniture">Furniture</option>
-					  <option value="pets">Pets</option>
-					  <option value="bookandsport">Books, Sports and hobbies</option>
-					  <option value="fashion">Fashion</option>
-					  <option value="kids">Kids</option>
-					  <option value="services">Services</option>
-					  <option value="estate">Real, Estate</option>
+					<select name="category" class="option" id="category_dropdown">      
+					  <option></option>
+					  @foreach($parent as $root)
+					  <option value="{{$root->category_id}}">{{$root->category_name}}</option>
+					@endforeach
+					</select>
+
+					<div class="clearfix"></div>
+
+					<label>Select Brand <span>*</span></label>
+					<select name="subcategory" class="option" id="brand_dropdown" >
+					  <option></option>
+					  <option value=""></option>
+					  
+					 
 					</select>
 
 					<div class="clearfix"></div>
@@ -47,10 +51,32 @@
 
 
 					<div class="clearfix"></div>
+
+					<label>Price  <span>*</span></label>
+					<input type="text" class="phone" placeholder="" >
+
+
+					<div class="clearfix"></div>
 					<label>Ad Description <span>*</span></label>
 					<textarea class="mess" placeholder="Write few lines about your product"></textarea>
 
 					<div class="clearfix"></div>
+
+					<label>Condition <span>*</span></label>
+					<select name="" class="option"> 
+					<option>Select 	</option>     
+					  <option value="">New</option>
+					 
+					  <option value=>Used</option>
+				
+					</select>
+
+					<div class="clearfix"></div>
+
+						<label>Km. run <span></span></label>
+					<input type="text" class="phone" placeholder="" >
+
+
 
 				<div class="upload-ad-photos">
 				<label>Photos for your ad :</label>	
@@ -70,9 +96,7 @@
 
 				
 
-						<div id="messages">
-						<p>Status Messages</p>
-						</div>
+						
 
 						</div>
 

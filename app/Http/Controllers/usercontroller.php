@@ -16,13 +16,26 @@ use App\Http\Requests;
 class usercontroller extends Controller
 {
     //
- public function __construct(){   
-    $this->middleware('auth');
-  }
+
     public function getIndex(){
     	return view('user.mainpage');
     }
 
+    public function getPostad(){
+       $obj1=DB::table('categorytables')->where('parent_id','=','0')->get();
+    $obj2=DB::table('categorytables')->where('parent_id','!=','0')->get();
+    if(Auth::check()){
+      return view('user.postad',array('parent'=>$obj1,'child'=>$obj2));
+    }
+    else{
+      return redirect('login');
+    }
+    }
+
+    public function getSubCategories($id){     //yo function ajax bata call bhako xa
+      $obj1 = DB::table('categorytables')->where('parent_id',$id)->get();
+      return $obj1;
+    }
 
    //public function getRegister(){
     	//return view('user.register');

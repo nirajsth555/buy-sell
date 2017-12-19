@@ -61,6 +61,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="{{url('public/usercss/js/jquery.uls.languagefilter.js')}}"></script>
 <script src="{{url('public/usercss/js/jquery.uls.regionfilter.js')}}"></script>
 <script src="{{url('public/usercss/js/jquery.uls.core.js')}}"></script>
+<script src="{{url('public/usercss/js/custom.js')}}"></script>
+
 <script>
 			$( document ).ready( function() {
 				$( '.uls-trigger' ).uls( {
@@ -89,6 +91,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			@else
 			<a class="account" href="{{url('register')}}">Register</a>
 			<a class="account" href="{{url('login')}}">Login</a>
+			
 			@endif
 			
 	<!-- Large modal -->
@@ -100,11 +103,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	  <div class="container">    
 			<h1>Sell or Advertise   <span class="segment-heading">    anything online </span> with Resale</h1>
 			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-			<a href="{{url('post')}}">Post Free Ad</a>
+			<a href="{{url('post-ad')}}">Post Free Ad</a>
 	  </div>
 	</div>
 		<!-- everything to be put in the content -->
 		<div class="content">
+	
 			@yield('category')
 			@yield('trendingads')
 			@yield('mobileapp')
