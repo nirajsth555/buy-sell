@@ -21,7 +21,8 @@
 							<div class="sign-up2">
 								
 									<input type="text" name="fullname" placeholder="Please enter your full name " id="name"  value="{{Request::old('name')}}" />
-									{{$errors->first('name')}}<p id="statuspass"></p> <br>
+									{{$errors->first('name')}} <br>
+									<p id="statuspass"></p>
 								
 							</div>
 							<div class="clearfix"> </div>
@@ -32,10 +33,10 @@
 							</div>
 							<div class="sign-up2">
 								
-									<input type="text" name="email" placeholder="Please enter your email " value="{{Request::old('email')}}"  />{{$errors->first('email')}}<br>
+									<input type="text" name="email" placeholder="Please enter your email " id="email" value="{{Request::old('email')}}"  />{{$errors->first('email')}}<br>
 								
 							</div>
-							<div class="clearfix"> </div>
+							<div class="clearfix"><p id="emailpass" ></p> </div>
 						</div>
 						<div class="sign-u">
 							<div class="sign-up1">

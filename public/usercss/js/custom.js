@@ -58,12 +58,17 @@ $(document).ready(function(){
 
 //confirmpassword
 $(document).ready(function(){
+    var password=  $('#password').val();
 $('#password, #confirm_password').on('keyup', function () {
 
-  if ($('#password').val() == $('#confirm_password').val()) {
+ if( password ==  ""){
+  $('#message_strength').html('Please enter your password').css({"color":"red","font-style":"italic","font-family":"cursive"});  
+ }
+  if ($('#password').val() == $('#confirm_password').val() && password != "") {
     $('#message').html('Password match').css({"color":"green","font-style":"italic","font-family":"cursive"});
-  } else 
+  } if ($('#password').val() != $('#confirm_password').val()){
     $('#message').html('Password and Confirm Password donot match').css({"color":"red","font-style":"italic","font-family":"cursive"});
+}
 });
 });
 
@@ -96,19 +101,19 @@ function checkStrength(password){
     if (strength < 2 ) {
            $('#message_strength').removeClass()
         $('#message_strength').addClass('weak')
-        return $('#message').html(' Weak').css({"color":"red","font-style":"italic","font-family":"cursive"});
+        return $('#message').html('Password strength: weak').css({"color":"red","font-style":"italic","font-family":"cursive"});
     }
     else if 
         (strength == 2 ) {
      $('#message_strength').removeClass()
         $('#message_strength').addClass('good')
-        return $('#message').html('  Good').css({"color":"green","font-style":"italic","font-family":"cursive"});
+        return $('#message').html('Password strength:  Good').css({"color":"green","font-style":"italic","font-family":"cursive"});
     }
 
     else { 
      $('#message_strength').removeClass()
         $('#message_strength').addClass('strong')
-        return $('#message').html('Strong').css({"color":"green","font-style":"italic","font-family":"cursive"}); 
+        return $('#message').html('Password strength:Strong').css({"color":"green","font-style":"italic","font-family":"cursive"}); 
     }
 
 
@@ -117,7 +122,7 @@ function checkStrength(password){
 //end
 
 
-
+//start of username
 $(document).ready(function(){
 
 $("#name").change(function() { 
@@ -136,6 +141,7 @@ if(usrN.length >= 4)
         },
         success: function(msg){  
             $("#statuspass").html(msg);
+             //$("#statuspass").html(<font color="red" style="margin-left:125px;">msg<strong></strong> .</font>);
         }
     });
 } else
@@ -148,3 +154,47 @@ if(usrN.length >= 4)
 });
 
 });
+//end of username
+
+//start of email
+$(document).ready(function(){
+
+$("#email").change(function() { 
+
+var usrN = $("#email").val();
+
+if(usrN.length >= 5)
+{
+    $("#emailpass").html(' Checking ...');
+
+    $.ajax({  
+        type: "get",  
+        url : "checkemail", 
+        data:{
+            email:usrN,
+        },
+        success: function(errorString){ 
+            debugger;
+            var parsedJson = jQuery.parseJSON(response);
+            var errorString = '';
+            $.each( parsedJson.errors, function( key, value) {
+            errorString += '<li>' + value + '</li>';
+        });
+        $('#emailpass').html(errorString)
+
+       //$('#emailpass').html(errorString); 
+            //$("#statuspass").html(msg);
+             //$("#statuspass").html(<font color="red" style="margin-left:125px;">msg<strong></strong> .</font>);
+        }
+    });
+} else
+    {
+        $("#emailpass").html('<font color="red" style="margin-left:125px;">Please enter a valid email address<strong></strong> .</font>');
+        $("#email").removeClass('object_ok'); 
+        $("#email").addClass("object_error");
+    }
+
+});
+
+});
+//endofemail

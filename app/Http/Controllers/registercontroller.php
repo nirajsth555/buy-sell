@@ -124,6 +124,30 @@ class registercontroller extends Controller
       }
 }
 
+public function getCheckemail(Request $request){
+   $validation= Validator::make($request->all(),[
+          
+          'email'=>'required|Email|unique:users,email'
+          ],[
+            
+            'email.required'=>'A valid email is required',
+            'email.Email'=>'please enter a valid email address',
+            'email.unique'=>'Email address already used',
+            ]);
+
+    
+  $email= $request->get('email');
+  if($validation->fails()){
+    return json_encode([
+       'errors' => $validation->errors()->getMessages(),
+       'code'=>422
+      ]);
+  }
+
+      
+
+}
+
 
 
 }

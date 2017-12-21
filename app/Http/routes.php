@@ -33,3 +33,4 @@ Route::post('ad','usercontroller@postPostad');
 Route::get('getSubcategory/{id}','usercontroller@getSubcategories');
 
 Route::get('checkname','registercontroller@getCheckname');
+Route::get('checkemail','registercontroller@getCheckemail');
